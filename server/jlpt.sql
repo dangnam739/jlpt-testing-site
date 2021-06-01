@@ -101,7 +101,7 @@ CREATE TABLE `questionpracticevocabulary` (
 
 LOCK TABLES `questionpracticevocabulary` WRITE;
 /*!40000 ALTER TABLE `questionpracticevocabulary` DISABLE KEYS */;
-INSERT INTO `questionpracticevocabulary` VALUES (1,'きのう　かいしゃを　*やすみました*','友みました','休みました','安みました','体みました','2',2),(2,'いすの*した*に　かばんが　あります。','才','丅','下','干','3',2),(3,'けさ　おそく　うちを　*出ました*','だしました','でました','でりました','きました','2',2),(4,'*せんせい*は　いつも　いそがしいです。','先生','生先','先牛','矢王','1',2),(5,'けさ　おそく　うちを　*出ました*','だしました','でました','でりました','きました','2',2),(6,'アンさんは　ぼうしを　（　　）　います。','きて','はいて','かけて','かぶって','4',2),(7,'（　　）　のみものが　ほしいです　。','いたい','つめたい','あかるい','さむい','2',2),(8,'ふくを　（　　）、　おふろに　はいります。','すって','すわって','けして','ぬいで','4',2),(9,'この　かばんは　*高い*です','たかい','だかい','たがい','だがい','1',2),(10,'*わたしは　はじめて　にほんに　きました*。','わたしは　にほんに　きたことが　ありませんでした。','わたしは　ことし　にほんに　きました。','わたしは　らいねん　にほんに　きます。','わたしは　にほんに　きたかったです。','1',2),(11,'*わたしは　フランスごを　ならっています*。','わたしは　フランスごを　おしえて　います。','わたしは　フランスごを　かいて　います。','わたしは　フランスごを　べんきょうして　います。','わたしは　フランスごを　よんで　います。','3',2),(12,'*たなかさんは　もう　かえりました*。','たなかさんは　きのう　きました。','たなかさんは　どこも　いません。','たなかさんは　ここに　いません。','たなかさんは　きょう　やすみでした。','1',2);
+INSERT INTO `questionpracticevocabulary` VALUES (1,'きのう　かいしゃを　*やすみました*','友みました','休みました','安みました','体みました','1',2),(2,'いすの*した*に　かばんが　あります。','才','丅','下','干','3',2),(3,'けさ　おそく　うちを　*出ました*','だしました','でました','でりました','きました','2',2),(4,'*せんせい*は　いつも　いそがしいです。','先生','生先','先牛','矢王','1',2),(5,'けさ　おそく　うちを　*出ました*','だしました','でました','でりました','きました','2',2),(6,'アンさんは　ぼうしを　（　　）　います。','きて','はいて','かけて','かぶって','4',2),(7,'（　　）　のみものが　ほしいです　。','いたい','つめたい','あかるい','さむい','2',2),(8,'ふくを　（　　）、　おふろに　はいります。','すって','すわって','けして','ぬいで','4',2),(9,'この　かばんは　*高い*です','たかい','だかい','たがい','だがい','1',2),(10,'*わたしは　はじめて　にほんに　きました*。','わたしは　にほんに　きたことが　ありませんでした。','わたしは　ことし　にほんに　きました。','わたしは　らいねん　にほんに　きます。','わたしは　にほんに　きたかったです。','1',2),(11,'*わたしは　フランスごを　ならっています*。','わたしは　フランスごを　おしえて　います。','わたしは　フランスごを　かいて　います。','わたしは　フランスごを　べんきょうして　います。','わたしは　フランスごを　よんで　います。','3',2),(12,'*たなかさんは　もう　かえりました*。','たなかさんは　きのう　きました。','たなかさんは　どこも　いません。','たなかさんは　ここに　いません。','たなかさんは　きょう　やすみでした。','1',2);
 /*!40000 ALTER TABLE `questionpracticevocabulary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,8 +117,9 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `admin` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +128,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'hoanganh','vuminhhoanganh12@gmail.com','4297f44b13955235245b2497399d7a93'),(2,'tra','nvd.vnist@gmail.com','925cc8d2953eba624b2bfedf91a91613'),(3,'hoanganh123','vu@gmail.com','e034fb6b66aacc1d48f445ddfb08da98'),(4,'ha','admin.vnist@gmail.com','4297f44b13955235245b2497399d7a93');
+INSERT INTO `users` VALUES (1,'hoanganh','vuminhhoanganh12@gmail.com','4297f44b13955235245b2497399d7a93',0),(2,'tra','nvd.vnist@gmail.com','925cc8d2953eba624b2bfedf91a91613',0),(3,'hoanganh123','vu@gmail.com','e034fb6b66aacc1d48f445ddfb08da98',0),(4,'ha','admin.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(5,'da','nva.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(6,'1212','12@gmail.com','202cb962ac59075b964b07152d234b70',0),(7,'admin','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-28 15:25:02
+-- Dump completed on 2021-06-01 10:46:02
