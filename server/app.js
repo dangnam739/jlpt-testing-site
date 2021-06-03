@@ -12,6 +12,8 @@ require('dotenv/config')
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth')
 var practiceRouter = require('./routes/practice');
+var pointRouter = require('./routes/point')
+
 
 var db = require('./Database');
 
@@ -40,6 +42,7 @@ app.use(function(req, res, next) {
 app.use('/', authRouter);
 app.use('/users', usersRouter);
 app.use('/practice', practiceRouter);
+app.use('/point',pointRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
