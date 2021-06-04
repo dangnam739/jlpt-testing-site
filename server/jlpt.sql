@@ -4,6 +4,21 @@ USE jlpt;
 -- Table structure for table `grammarpractice`
 --
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `grammarpractice`
+--
+
 DROP TABLE IF EXISTS `grammarpractice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -128,8 +143,32 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'hoanganh','vuminhhoanganh12@gmail.com','4297f44b13955235245b2497399d7a93',0),(2,'tra','nvd.vnist@gmail.com','925cc8d2953eba624b2bfedf91a91613',0),(3,'hoanganh123','vu@gmail.com','e034fb6b66aacc1d48f445ddfb08da98',0),(4,'ha','admin.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(5,'da','nva.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(6,'1212','12@gmail.com','202cb962ac59075b964b07152d234b70',0),(7,'admin','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',1);
+INSERT INTO `users` VALUES (1,'hoanganh','vuminhhoanganh12@gmail.com','4297f44b13955235245b2497399d7a93',0),(2,'tra123','nvd.vnist@gmail.com','cfac4e0dc47d98414cf373a2f09d28a1',0),(3,'hoanganh123','vu@gmail.com','e034fb6b66aacc1d48f445ddfb08da98',0),(4,'ha','admin.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(5,'da','nva.vnist@gmail.com','4297f44b13955235245b2497399d7a93',0),(6,'1212','12@gmail.com','202cb962ac59075b964b07152d234b70',0),(7,'admin','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `value`
+--
+
+DROP TABLE IF EXISTS `value`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `value` (
+  `user_id` int NOT NULL,
+  `pactice_id` int NOT NULL,
+  `point` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `value`
+--
+
+LOCK TABLES `value` WRITE;
+/*!40000 ALTER TABLE `value` DISABLE KEYS */;
+INSERT INTO `value` VALUES (1,2,2);
+/*!40000 ALTER TABLE `value` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -165,4 +204,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-01 10:46:02
+-- Dump completed on 2021-06-04  9:32:14
