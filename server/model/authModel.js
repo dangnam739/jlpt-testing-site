@@ -25,7 +25,7 @@ module.exports.login = async(req, res) => {
         return;
     }
     var resEmail = result.email;
-    var qr = "SELECT u.name, u.id FROM users AS u WHERE u.email =\'" + email + "\' AND  u.password = \'" + password + "\'";
+    var qr = "SELECT u.name, u.id ,u.admin FROM users AS u WHERE u.email =\'" + email + "\' AND  u.password = \'" + password + "\'";
     var resultA = await queryFunc(qr);
     if (resultA.length === 0) {
         res.send({ status: "fail", message: "password incorrect" });
