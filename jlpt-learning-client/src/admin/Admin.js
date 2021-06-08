@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { Switch, Route, Router, Link } from 'react-router-dom'
 
+import EditTest from './EditTest.js';
 import ListUser from './ListUser';
 import ListTest from './ListTest';
 
@@ -26,6 +27,8 @@ export default class Admin extends Component{
           <Route path='/admin/user' exact component={ListUser}>
           </Route>
           <Route path='/admin/test' exact component={ListTest}>
+          </Route>
+          <Route path='/admin/test/edit/:id' exact component={EditTest}>
           </Route>
           <Route exact path='/admin/'>
             <h3>Welcome to admin page</h3>

@@ -70,9 +70,10 @@ export default class ListTest extends Component{
           {tests.map( (test) =>
             <tr>
               <td>{test.id}</td>
+              <td>{test.name}</td>
               <td>{test.category}</td>
               <td>{test.level}</td>
-              <td><Link to='#'><img alt='Edit' title='Edit' src='/assets/edit.png' /></Link></td>
+              <td><Link to={`/admin/test/edit/${test.id}`}><img alt='Edit' title='Edit' src='/assets/edit.png' /></Link></td>
             </tr>
           )}
           </tbody>

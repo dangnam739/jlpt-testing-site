@@ -77,8 +77,8 @@ class EntryPractice extends Component {
                         <div className="col-md-2"></div>
                         <div className="col-md-8 practice-content">
                             <div className="router">
-                                <a href="/"> {arrPath[2]} </a><span> > </span>
-                                <a href={'/' + arrPath[1]}> {arrPath[1]} </a> <span> > </span>
+                                <a href="/"> {arrPath[2]} </a><span> &gt; </span>
+                                <a href={'/' + arrPath[1]}> {arrPath[1]} </a> <span> &gt; </span>
                                 <a href={path}> {arrPath[3]} </a>
                             </div>
                             <h2 className="text-center">Practice Exam</h2>
