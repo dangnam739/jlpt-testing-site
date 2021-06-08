@@ -14,6 +14,17 @@ module.exports.getUserById = function(req, res) {
     }
     res.send(result);
 }
+module.exports.deleteUser = function(req, res) {
+    var id = req.params.id;
+    var qr = "delete FROM users WHERE id =\'" + id + "\'";
+    console.log(qr);
+    var result = queryFunc(qr);
+    if (result.length == 0) {
+        res.send({ status: "ok" });
+        return;
+    }
+    res.send(result);
+}
 module.exports.getAllUser = async function(req, res) {
     var qr = "SELECT * FROM users ";
     console.log(qr);

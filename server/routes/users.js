@@ -8,4 +8,5 @@ router.get('/getall', isLogin, userModel.getAllUser);
 router.get('/:id', isLogin, userModel.getUserById);
 router.put('/:id', isLogin, userModel.update)
 router.post('/checkPassword', isLogin, userModel.checkPassWord)
+router.delete('/:id',isLogin, userModel.deleteUser)
 module.exports = router
