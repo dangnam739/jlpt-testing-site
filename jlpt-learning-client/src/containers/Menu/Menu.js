@@ -11,6 +11,12 @@ import Register from '../Register/Register';
 import Practice from '../Practise/Practice';
 import PracticeTest from '../Practise/PracticeTest/PracticeTest';
 import EntryPractice from '../Practise/EntryPractice/EntryPractice';
+import Admin from '../../admin/Admin';
+//import Chart from '../Chart/Chart';
+//import Exams from '../Exams/Exams';
+//import Practice from '../Practise/Practice';
+//import PracticeTest from '../Practise/PracticeTest/PracticeTest';
+//import EntryPractice from '../Practise/EntryPractice/EntryPractice';
 
 import {isLogin, clearUserToken} from '../../auth/userAuth';
 import Profile from '../Profile/Profile';
@@ -56,17 +62,28 @@ class Menu extends Component {
                 </Navbar>
 
                 <Route exact path="/" component={Home} />
+                
+                <Route path="/admin" component={Admin} />
 
                 <Route exact path="/practice" component={Practice} />
 
+                {/* <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} /> */}
+                <Route exact path="/chart" >
+                    {/* <Chart /> */}
+                </Route>
+
+                {/* <Route exact path="/practice" component={Practice} /> */}
+
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
+                {/* <Route exact path="/exams/:id" component={Exams} /> */}
 
-                <Route exact path="/practice/:level/:category" component={PracticeTest} />
+                {/* <Route exact path="/practice/:level/:category" component={PracticeTest} /> */}
 
-                <PrivateRoute exact path="/practice/:level/:category/:id">
+                {/* <PrivateRoute exact path="/practice/:level/:category/:id">
                       <EntryPractice />
-                </PrivateRoute>
+                </PrivateRoute> */}
 
                 <PrivateRoute exact path="/profile">
                   <Profile />

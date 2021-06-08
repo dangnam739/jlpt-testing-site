@@ -4,14 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 
 class CardTest extends Component {
+    constructor(props){
+        super(props)
+    }
     render() {
+        const { infor } = this.props;
         return (
             <div className="card">
-                <div className="card__level">N5</div>
-                <h4 className="card__title">JLPT N5 practice test</h4>
-                <div className="card__id">ID exam: JLPT12</div>
-                <p>Time litmit: 120 munites</p>
-                <a href= {"/exams/" + this.props.id}><FontAwesomeIcon icon={faAngleDoubleRight} /> Exam now</a>
+                {console.log(infor)}
+                <div className="card__level">100</div>
+                <h4 className="card__title">{infor.heading}</h4>
+                <div className="card__id">{infor.content}</div>
+                <a href= {infor.link}><FontAwesomeIcon icon={faAngleDoubleRight} />Register now</a>
 
             </div>
         );

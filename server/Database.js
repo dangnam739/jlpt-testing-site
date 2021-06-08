@@ -7,10 +7,10 @@ var pool = mysql.createPool({
     database: process.env.DATABASE
 });
 
-pool.getConnection(function(err, connection) {
-    console.log(err);
-    connection.destroy();
-});
+// pool.getConnection(function(err, connection) {
+//     console.log(err);
+//     connection.destroy();
+// });
 //sao day
 
 module.exports = pool;

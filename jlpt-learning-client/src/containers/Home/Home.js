@@ -36,10 +36,10 @@ class Home extends Component {
             <div className="homepage">
                 <div className="homepage__header">
                     <p className="homepage__header__title">
-                        Warehouse of Japanese exam questions for free
+                    de thi jlptのページへようこそ
                     </p >
                     
-                    <div className="d-flex homepage__header__icon">
+                    {/* <div className="d-flex homepage__header__icon">
                         <img height="70px" src="/assets/app_store_icon.png" alt=""/>
                         <img height="70px" src="/assets/google_play_store_icon.png" alt=""/>
                     </div>
@@ -54,35 +54,50 @@ class Home extends Component {
                             placeholder="Level"
                         />
                         <Button variant="primary" className="homepage__header__button"><FontAwesomeIcon icon={faSearch} /> Search</Button>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="homepage__content">
-                    <div className="homepage__content__title">
+                    {/* <div className="homepage__content__title">
                         <div className="container">
                             <h2>Standardized test</h2>
                             <p>Standard exam questions are updated continuously</p>
                             
                         </div>
-                    </div>
+                    </div> */}
                     <div className="container">
                         <Row>
                             <Col md={4}>
-                                <CardTest id="1" />
+                                <CardTest 
+                                    id="1" 
+                                    infor={
+                                        {
+                                            heading: "かんたん登録",
+                                            content: "メールだけでde thi jlptのサービスを使うことできる",
+                                            link: '/register'
+                                    }
+                                    }/>
                             </Col>
                             <Col md={4}>
-                                <CardTest id="2" />
+                                <CardTest 
+                                    id="1" 
+                                    infor={
+                                        {
+                                            heading: "試験に便利",
+                                            content: "いつでもどこでも試験もできて便利だ",
+                                            link: '/register'
+                                    }
+                                    }/>
                             </Col>
                             <Col md={4}>
-                                <CardTest id="3" />
-                            </Col>
-                            <Col md={4}>
-                                <CardTest id="1" />
-                            </Col>
-                            <Col md={4}>
-                                <CardTest id="2" />
-                            </Col>
-                            <Col md={4}>
-                                <CardTest id="3" />
+                                <CardTest 
+                                    id="1" 
+                                    infor={
+                                        {
+                                            heading: "成績をまとめ",
+                                            content: "結果の試験をまとめて進歩を反省する",
+                                            link: '/register'
+                                    }
+                                    }/>
                             </Col>
                         </Row>
                     </div>
