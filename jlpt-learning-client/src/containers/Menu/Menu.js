@@ -6,10 +6,8 @@ import {faHome, faChartLine, faAngleDoubleRight, faSignInAlt, faKey, faUser} fro
 import { BrowserRouter, Route, NavLink, Redirect } from 'react-router-dom';
 import './Menu.scss';
 import Home from '../Home/Home';
-import Chart from '../Chart/Chart';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import Exams from '../Exams/Exams';
 import Practice from '../Practise/Practice';
 import PracticeTest from '../Practise/PracticeTest/PracticeTest';
 import EntryPractice from '../Practise/EntryPractice/EntryPractice';
@@ -36,7 +34,6 @@ class Menu extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                             <NavLink exact={true} to="/" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faHome} /> Home</NavLink>
-                            <NavLink to="/chart" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Chart</NavLink>
                             </Nav>
                             <div className="menupage__group">
                                 <NavLink to="/practice" activeClassName="active-link" className="menupage__link">
@@ -60,15 +57,10 @@ class Menu extends Component {
 
                 <Route exact path="/" component={Home} />
 
-                <Route exact path="/chart" >
-                    <Chart />
-                </Route>
-
                 <Route exact path="/practice" component={Practice} />
 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/exams/:id" component={Exams} />
 
                 <Route exact path="/practice/:level/:category" component={PracticeTest} />
 
