@@ -14,15 +14,15 @@ class Footer extends Component {
                             <img className="footer__img" height="50px" src="/assets/dethijlpt-logo-white.png" alt=""/>
                             <p>
                                 <FontAwesomeIcon className="footer__icon" icon={faAddressCard} />
-                                <span>University of Engineering and Technology - 144 Xuan Thuy, Cau Giay, Ha Noi</span> <br/>
+                                <span>HaNoi工科大学 - 1 Dai Co Viet, Ha Ba Trung, Ha Noi</span> <br/>
                                 <FontAwesomeIcon className="footer__icon" icon={faMailBulk} />
-                                <span>nhatngo11a1@gmail.com</span>
+                                <span>dethijlpt@email.com</span>
                             </p>
                         </Col>
-                        <Col md={4}>
+                        {/* <Col md={4}>
                             <img className="footer__img" height="50px" src="/assets/app_store_icon.png" alt=""/>
                             <img className="footer__img" height="50px" src="/assets/google_play_store_icon.png" alt=""/>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Container>
             </div>

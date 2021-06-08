@@ -6,13 +6,14 @@ import {faHome, faChartLine, faAngleDoubleRight, faSignInAlt, faKey, faUser} fro
 import { BrowserRouter, Route, NavLink, Redirect } from 'react-router-dom';
 import './Menu.scss';
 import Home from '../Home/Home';
-import Chart from '../Chart/Chart';
+import Admin from '../../admin/Admin';
+//import Chart from '../Chart/Chart';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import Exams from '../Exams/Exams';
-import Practice from '../Practise/Practice';
-import PracticeTest from '../Practise/PracticeTest/PracticeTest';
-import EntryPractice from '../Practise/EntryPractice/EntryPractice';
+//import Exams from '../Exams/Exams';
+//import Practice from '../Practise/Practice';
+//import PracticeTest from '../Practise/PracticeTest/PracticeTest';
+//import EntryPractice from '../Practise/EntryPractice/EntryPractice';
 
 import {isLogin, clearUserToken} from '../../auth/userAuth';
 import Profile from '../Profile/Profile';
@@ -59,22 +60,24 @@ class Menu extends Component {
                 </Navbar>
 
                 <Route exact path="/" component={Home} />
+                
+                <Route path="/admin" component={Admin} />
 
                 <Route exact path="/chart" >
-                    <Chart />
+                    {/* <Chart /> */}
                 </Route>
 
-                <Route exact path="/practice" component={Practice} />
+                {/* <Route exact path="/practice" component={Practice} /> */}
 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/exams/:id" component={Exams} />
+                {/* <Route exact path="/exams/:id" component={Exams} /> */}
 
-                <Route exact path="/practice/:level/:category" component={PracticeTest} />
+                {/* <Route exact path="/practice/:level/:category" component={PracticeTest} /> */}
 
-                <PrivateRoute exact path="/practice/:level/:category/:id">
+                {/* <PrivateRoute exact path="/practice/:level/:category/:id">
                       <EntryPractice />
-                </PrivateRoute>
+                </PrivateRoute> */}
 
                 <PrivateRoute exact path="/profile">
                   <Profile />
