@@ -4,6 +4,7 @@ var practiceModel = require('./../model/practiceModel')
 var isLogin = require('./../model/authModel').checkLogin;
 
 /* GET users listing. */
+router.get('/getall', isLogin, practiceModel.getAllP);
 router.get('/:level', isLogin, practiceModel.getAllByLevel);
 router.get('/:level/:type', isLogin, practiceModel.getAll);
 router.get('/:level/:type/:id', isLogin, practiceModel.getPracticeById);

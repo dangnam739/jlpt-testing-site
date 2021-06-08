@@ -9,17 +9,7 @@ export default class ListUser extends Component{
     this.state = {
       isLoading: true,
       users: [
-      //   {
-      //     id: 1,
-      //     name: 'Khanh',
-      //     email: 'khanh@example.com'
-      //   },
-      //   {
-      //     id: 2,
-      //     name: 'Nhat',
-      //     email: 'nhat@example.com'
-      //   }
-      // 
+
       ],
       error: null
     }
@@ -31,7 +21,7 @@ export default class ListUser extends Component{
 
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(`http://localhost:8080/users/getall`)
       .then(
         (response) => 
         {

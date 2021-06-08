@@ -47,22 +47,26 @@ class EditTest extends Component{
 
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
-    // axios.get(`https://jsonplaceholder.typicode.com/users`)
-    //   .then(
-    //     (response) => 
-    //     {
-    //       this.setState({
-    //         isLoading: false,
-    //         users: response.data
-    //       })
-    //     }
-    //   )
-    //   .catch(error => this.setState(
-    //     {
-    //       error,
-    //       isLoading: false
-    //     }
-    //   ))
+    let path1= window.location.pathname
+    console.log(path1);
+    let listpath=path1.split("/")
+    axios.get(`http://localhost:8080/practice/${listpath[listpath.length-3]}/${listpath[listpath.length-2]}/${listpath[listpath.length-1]}`)
+      .then(
+        (response) => 
+        {
+          console.log(response)
+          this.setState({
+            isLoading: false,
+            questions:response.data
+          })
+        }
+      )
+      .catch(error => this.setState(
+        {
+          error,
+          isLoading: false
+        }
+      ))
   }
 
   render(){
@@ -70,10 +74,10 @@ class EditTest extends Component{
     return(
       <div>
         <h3>テストの編集</h3>
-        {questions.map(question => 
+        {questions.map((question,index) => 
           <Form>
             <Form.Group className="mb-3" controlId="formBasicQuestion">
-              <Form.Label>Question</Form.Label>
+              <Form.Label>Question : {index+1}</Form.Label>
               <Form.Control type="text" placeholder="Enter question" value={question.question}/>
             </Form.Group>
 
@@ -99,13 +103,13 @@ class EditTest extends Component{
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>True answer</Form.Label>
-              <Form.Select aria-label="Default select example" value={question.result}>
+              {/*<Form.Select aria-label="Default select example" value={question.result}>
                 <option>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
                 <option value="4">Four</option>
-              </Form.Select>
+        </Form.Select>*/}
             </Form.Group>
           </Form>
         )}

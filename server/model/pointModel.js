@@ -11,6 +11,7 @@ module.exports.get= async (req,res)=>{
     //     res.send({ status: "ok" });
     //     return;
     // }
+    console.log(qr);
     res.send({data:result})
 }
 

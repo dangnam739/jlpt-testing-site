@@ -28,7 +28,7 @@ export default class Admin extends Component{
           </Route>
           <Route path='/admin/test' exact component={ListTest}>
           </Route>
-          <Route path='/admin/test/edit/:id' exact component={EditTest}>
+          <Route path='/admin/test/edit/:level/vocabulary/:id' exact component={EditTest}>
           </Route>
           <Route exact path='/admin/'>
             <h3>Welcome to admin page</h3>

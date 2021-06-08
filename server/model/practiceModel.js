@@ -34,7 +34,6 @@ module.exports.getPracticeById = async(req, res) => {
 module.exports.getAll = async(req, res) => {
     var type = req.params.type;
     var level = req.params.level;
-
     if (levels.indexOf(level) == -1) res.send({ status: "fail", message: "level invalid" });
     if (types.indexOf(type) == -1) res.send({ status: "fail", message: "type invalid" });
     else {
@@ -43,6 +42,13 @@ module.exports.getAll = async(req, res) => {
         var result = (rows.length == 0) ? { status: "fail", message: "Not Found practice" } : rows;
         res.send(result);
     }
+}
+module.exports.getAllP = async(req, res) => {
+
+        var qr = "SELECT * FROM vocabularypractice ";
+        var result = await queryFunc(qr);
+        console.log(result);
+        res.send(result);
 }
 module.exports.update = async(req,res) =>{
     var body = req.body;

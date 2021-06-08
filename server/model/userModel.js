@@ -14,6 +14,16 @@ module.exports.getUserById = function(req, res) {
     }
     res.send(result);
 }
+module.exports.getAllUser = async function(req, res) {
+    var qr = "SELECT * FROM users ";
+    console.log(qr);
+    var result = await queryFunc(qr);
+    if (result.length == 0) {
+        res.send({ status: "ok" });
+        return;
+    }
+    res.send(result);
+}
 module.exports.update = (req, res) => {
     var id = req.params.id;
     var body = req.body;

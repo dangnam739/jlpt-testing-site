@@ -33,22 +33,23 @@ export default class ListTest extends Component{
 
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
-    // axios.get(`https://jsonplaceholder.typicode.com/users`)
-    //   .then(
-    //     (response) => 
-    //     {
-    //       this.setState({
-    //         isLoading: false,
-    //         users: response.data
-    //       })
-    //     }
-    //   )
-    //   .catch(error => this.setState(
-    //     {
-    //       error,
-    //       isLoading: false
-    //     }
-    //   ))
+    axios.get(`http://localhost:8080/practice/getall`)
+      .then(
+        (response) => 
+        {
+          console.log(response);
+          this.setState({
+            isLoading: false,
+            tests: response.data
+          })
+        }
+      )
+      .catch(error => this.setState(
+        {
+          error,
+          isLoading: false
+        }
+      ))
   }
 
   render(){
@@ -60,7 +61,6 @@ export default class ListTest extends Component{
           <thead>
             <tr>
               <th>#</th>
-              <th>テスト名前</th>
               <th>カテゴリ</th>
               <th>レベル</th>
               <th>編集</th>
@@ -70,10 +70,9 @@ export default class ListTest extends Component{
           {tests.map( (test) =>
             <tr>
               <td>{test.id}</td>
-              <td>{test.name}</td>
-              <td>{test.category}</td>
+              <td>vocabulary</td>
               <td>{test.level}</td>
-              <td><Link to={`/admin/test/edit/${test.id}`}><img alt='Edit' title='Edit' src='/assets/edit.png' /></Link></td>
+              <td><Link to={`/admin/test/edit/${test.level}/vocabulary/${test.id}`}><img alt='Edit' title='Edit' src='/assets/edit.png' /></Link></td>
             </tr>
           )}
           </tbody>
