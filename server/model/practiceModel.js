@@ -111,6 +111,23 @@ module.exports.add = async(req, res) => {
         return { status: "ok", message: "success" };
     }
 }
+module.exports.addP = async(req, res) => {
+    var body = req.body;
+    var type = body.type;
+    var {idRLG, question, answer1, answer2, answer3, answer4, result } = body
+    qr = "INSERT INTO questionpractice" + type + " (`id`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `result`, `idRLG`)" +
+        "VALUES (NULL, \'" + question + "\'," +
+        "\'" + answer1 + "\'," +
+        "\'" + answer2 + "\'," +
+        "\'" + answer3 + "\'," +
+        "\'" + answer4 + "\'," +
+        "\'" + result + "\'," +
+        "\'" + idRLG + "\'" +
+        ")";
+    var result = queryFunc(qr);
+    row++;
+    return { status: "ok", message: "success" };
+}
 module.exports.remove = async(req, res) => {
     var body = req.body;
     var id = body.id;
