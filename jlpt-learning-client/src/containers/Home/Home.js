@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Home.scss';
 import Select from 'react-select';
-import {Button, Row, Col} from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import CardTest from '../../components/CardTest/CardTest';
 import Footer from '../Footer/Footer'
 import UserProvider from '../../components/UserProvider';
@@ -15,10 +15,10 @@ const options = [
     { value: '3', label: 'N3' },
     { value: '4', label: 'N4' },
     { value: '5', label: 'N5' }
-  ];
+];
 
 class Home extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             selectedOption: null,
@@ -32,78 +32,48 @@ class Home extends Component {
     render() {
         const { selectedOption } = this.state;
 
-        return (
-            <div className="homepage">
-                <div className="homepage__header">
-                    <p className="homepage__header__title">
-                    de thi jlptのページへようこそ
-                    </p >
-                    
-                    {/* <div className="d-flex homepage__header__icon">
-                        <img height="70px" src="/assets/app_store_icon.png" alt=""/>
-                        <img height="70px" src="/assets/google_play_store_icon.png" alt=""/>
-                    </div>
-                    <br/>
-
-                    <div className="homepage__header__sort">
-                        <Select
-                            className="homepage__header__select"
-                            value={selectedOption}
-                            onChange={this.handleChange}
-                            options={options}
-                            placeholder="Level"
-                        />
-                        <Button variant="primary" className="homepage__header__button"><FontAwesomeIcon icon={faSearch} /> Search</Button>
-                    </div> */}
-                </div>
-                <div className="homepage__content">
-                    {/* <div className="homepage__content__title">
-                        <div className="container">
-                            <h2>Standardized test</h2>
-                            <p>Standard exam questions are updated continuously</p>
-                            
-                        </div>
-                    </div> */}
-                    <div className="container">
-                        <Row>
-                            <Col md={4}>
-                                <CardTest 
-                                    id="1" 
-                                    infor={
-                                        {
-                                            heading: "かんたん登録",
-                                            content: "メールだけでde thi jlptのサービスを使うことできる",
-                                            link: '/register'
-                                    }
-                                    }/>
-                            </Col>
-                            <Col md={4}>
-                                <CardTest 
-                                    id="1" 
-                                    infor={
-                                        {
-                                            heading: "試験に便利",
-                                            content: "いつでもどこでも試験もできて便利だ",
-                                            link: '/register'
-                                    }
-                                    }/>
-                            </Col>
-                            <Col md={4}>
-                                <CardTest 
-                                    id="1" 
-                                    infor={
-                                        {
-                                            heading: "成績をまとめ",
-                                            content: "結果の試験をまとめて進歩を反省する",
-                                            link: '/register'
-                                    }
-                                    }/>
-                            </Col>
-                        </Row>
-                    </div>
-                </div>
-                <Footer />
-            </div>
+        return ( <
+            div className = "homepage" >
+            <
+            div className = "homepage__header" >
+            <
+            p className = "homepage__header__title" >
+            Welcome JLPT Testing <
+            /p > <
+            div className = "container" >
+            <
+            Row >
+            <
+            Col md = { 3 } >
+            <
+            CardTest id = "1"
+            infor = {
+                {
+                    heading: "Quick Test",
+                    content: "Test any time, Multiple tests and Counting the exam time",
+                    link: '/register'
+                }
+            }
+            /> < /
+            Col > <
+            Col md = { 3 } >
+            <
+            CardTest id = "2"
+            infor = {
+                {
+                    heading: "Visual results",
+                    content: "Summarize the results test and reflect on the progress",
+                    link: '/register'
+                }
+            }
+            /> < /
+            Col > <
+            /Row> < /
+            div > <
+            /div> <
+            Footer / >
+            <
+            /div>
         );
     }
 }
