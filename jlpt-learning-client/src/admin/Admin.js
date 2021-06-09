@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Container } from 'react-bootstrap';
 import { Switch, Route, Router, Link } from 'react-router-dom'
 
 import EditTest from './EditTest.js';
@@ -13,7 +13,7 @@ export default class Admin extends Component{
 
   render(){
     return(
-      <div>
+      <Container>
         <h1>管理者</h1>
         <ListGroup horizontal>
           <ListGroup.Item>
@@ -34,7 +34,7 @@ export default class Admin extends Component{
             <h3>Welcome to admin page</h3>
           </Route>
         </Switch>
-      </div>
+      </Container>
     )
   }
 }

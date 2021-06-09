@@ -11,12 +11,12 @@ class Footer extends Component {
                 <Container>
                     <Row>
                         <Col md={8}>
-                            <img className="footer__img" height="50px" src="/assets/dethijlpt-logo-white.png" alt=""/>
+                            <img className="footer__img" height="50px" src="/assets/dethijlpt-logo.png" alt=""/>
                             <p>
                                 <FontAwesomeIcon className="footer__icon" icon={faAddressCard} />
                                 <span>HaNoi工科大学 - 1 Dai Co Viet, Ha Ba Trung, Ha Noi</span> <br/>
                                 <FontAwesomeIcon className="footer__icon" icon={faMailBulk} />
-                                <span>dethijlpt@email.com</span>
+                                <span>jlpttesting@email.com</span>
                             </p>
                         </Col>
                         {/* <Col md={4}>

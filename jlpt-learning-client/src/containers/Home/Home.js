@@ -36,7 +36,7 @@ class Home extends Component {
             <div className="homepage">
                 <div className="homepage__header">
                     <p className="homepage__header__title">
-                    de thi jlptのページへようこそ
+                    JLPT TESTINGのページへようこそ
                     </p >
                     
                     {/* <div className="d-flex homepage__header__icon">

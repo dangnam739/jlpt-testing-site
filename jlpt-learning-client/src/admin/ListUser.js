@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 
 export default class ListUser extends Component{
@@ -13,6 +13,8 @@ export default class ListUser extends Component{
       ],
       error: null
     }
+
+    this.deleteUser = this.deleteUser.bind(this);
   }
 
   componentDidMount(){
@@ -39,6 +41,10 @@ export default class ListUser extends Component{
       ))
   }
 
+  deleteUser(id){
+    axios.delete(`http://localhost:8080/users/${id}`);
+  }
+
   render(){
     const { isLoading, users, error } = this.state;
     return(
@@ -50,6 +56,7 @@ export default class ListUser extends Component{
               <th>#</th>
               <th>名前</th>
               <th>メール</th>
+              <th>削除</th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +65,14 @@ export default class ListUser extends Component{
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
+              <td>
+                <Button
+                  title="Delete"
+                  onClick={()=>this.deleteUser(user.id)}
+                >
+                  Delete
+                </Button>
+              </td>
             </tr>
           )}
           </tbody>
