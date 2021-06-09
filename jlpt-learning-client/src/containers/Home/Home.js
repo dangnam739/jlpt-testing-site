@@ -32,48 +32,43 @@ class Home extends Component {
     render() {
         const { selectedOption } = this.state;
 
-        return ( <
-            div className = "homepage" >
-            <
-            div className = "homepage__header" >
-            <
-            p className = "homepage__header__title" >
-            Welcome JLPT Testing <
-            /p > <
-            div className = "container" >
-            <
-            Row >
-            <
-            Col md = { 3 } >
-            <
-            CardTest id = "1"
-            infor = {
-                {
-                    heading: "Quick Test",
-                    content: "Test any time, Multiple tests and Counting the exam time",
-                    link: '/register'
-                }
-            }
-            /> < /
-            Col > <
-            Col md = { 3 } >
-            <
-            CardTest id = "2"
-            infor = {
-                {
-                    heading: "Visual results",
-                    content: "Summarize the results test and reflect on the progress",
-                    link: '/register'
-                }
-            }
-            /> < /
-            Col > <
-            /Row> < /
-            div > <
-            /div> <
-            Footer / >
-            <
-            /div>
+        return (
+            <div className="homepage">
+                <div className = "homepage__header">
+                    <p className="homepage__header__title">
+                        Welcome JLPT Testing
+                    </p>
+                <div className = "container">
+                    <Row>
+                        <Col md = {3}>
+                            <CardTest id = "1"
+                                infor = {
+                                    {
+                                        heading: "Quick Test",
+                                        content: "Test any time, Multiple tests and Counting the exam time",
+                                        link: '/register'
+                                    }
+                                }
+                            />
+                        </Col>
+
+                        <Col md = {3}>
+                            <CardTest id = "2"
+                                infor = {
+                                    {
+                                        heading: "Visual results",
+                                        content: "Summarize the results test and reflect on the progress",
+                                        link: '/register'
+                                    }
+                                }
+                            />
+                        </Col>
+                    </Row>
+                </div>
+            </div>
+
+            <Footer/>
+            </div>
         );
     }
 }

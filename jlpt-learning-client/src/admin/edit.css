@@ -1,0 +1,19 @@
+.test_edit{
+  margin: auto;
+  width: 800px;
+}
+
+.form{
+  border: solid 1px #000;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.label_input{
+  display: flex;
+}
+
+.label_input label{
+  width: 100px;
+}
