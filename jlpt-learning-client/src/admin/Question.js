@@ -17,7 +17,10 @@ class Question extends Component{
   onHandleEdit(question){
     console.log(question)
     //them link vao cho tao voi
-    axios.post('http:localhost:8080/')
+    axios.post('http://localhost:8080/practice/update',{id:question.id, question:question.question, answer1:question.answer1, answer2:question.answer2, answer3:question.answer3, answer4:question.answer4, result:question.result,type:'vocabulary'})
+    .then(res=>{
+      console.log(res.data);
+    })
   }
 
   render(){

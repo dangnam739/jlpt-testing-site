@@ -15,15 +15,16 @@ module.exports.getUserById = function(req, res) {
     res.send(result);
 }
 module.exports.deleteUser = function(req, res) {
+    console.log("1");
     var id = req.params.id;
     var qr = "delete FROM users WHERE id =\'" + id + "\'";
     console.log(qr);
     var result = queryFunc(qr);
     if (result.length == 0) {
-        res.send({ status: "ok" });
+        res.send({ status: "ok" ,id:id});
         return;
     }
-    res.send(result);
+    res.send({ status: "ok" ,id:id});
 }
 module.exports.getAllUser = async function(req, res) {
     var qr = "SELECT * FROM users ";
@@ -36,6 +37,7 @@ module.exports.getAllUser = async function(req, res) {
     res.send(result);
 }
 module.exports.update = (req, res) => {
+    
     var id = req.params.id;
     var body = req.body;
     var name = body.name;
@@ -48,6 +50,7 @@ module.exports.update = (req, res) => {
         "password = \'" + password + "\' " +
         "WHERE " +
         "id = \'" + id + "\' ";
+        console.log(qr);
     var result = queryFunc(qr);
     res.send('Update');
 }
@@ -57,6 +60,7 @@ module.exports.checkPassWord = (req, res) => {
     var password = md5(body.password);
 
     var qr = "SELECT u.password FROM users AS u WHERE u.id = \'" + id + "\'";
+    console.log(qr);
     db.query(qr, (err, result) => {
         if (err) throw err;
         if (result.length == 0) {

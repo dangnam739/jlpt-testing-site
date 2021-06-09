@@ -42,10 +42,16 @@ export default class ListUser extends Component{
   }
 
   deleteUser(id){
-    axios.delete(`http://localhost:8080/users/${id}`);
+    axios.post(`http://localhost:8080/users/delete/${id}`)
+    .then((result) => {
+      this.fetchData();
+    }).catch((err) => {
+      
+    });
   }
 
   render(){
+    console.log(this.state.users);
     const { isLoading, users, error } = this.state;
     return(
       <div>
