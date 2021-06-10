@@ -43,6 +43,19 @@ class Chart extends Component {
         })
 
     }
+    show = (data,indexN5) =>{
+        let result = null
+        result = data.map((user,index) => { 
+            if (index <3){
+                return <Col> {index+1} : <CardUserTop user={user} /> </Col>
+            }
+            if (index ===3){
+                return <Col>  </Col>
+            }
+        })
+        result = result.concat(   <Col> {indexN5+1} : <CardUserTop user={data[indexN5]} /> </Col>)
+        return result
+    }
     render() {
         console.log(this.state);
         let {n1,n2,n3,n4,n5 ,user} =this.state
@@ -95,17 +108,8 @@ class Chart extends Component {
                 <Row className="chart__row">
                     <Col className="chart__n5__title"><h4>Level N5</h4></Col>
                     { n5.length!==0 ?
-                        n5.map((user,index) => { 
-                            if (index <3){
-                                return <Col> {index+1} : <CardUserTop user={user} /> </Col>
-                            }
-                            if (index ===3){
-                                return <Col>  </Col>
-                            }
-                            if (index ===4){
-                                return <Col> {indexN5+1} : <CardUserTop user={n5[indexN5]} /> </Col>
-                            }
-                        })
+                        this.show(n5,indexN5)
+                              
                         : <Col><p> chưa ai thi </p></Col>
                     }
                 </Row>
