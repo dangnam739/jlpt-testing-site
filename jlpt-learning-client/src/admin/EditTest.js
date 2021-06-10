@@ -4,6 +4,7 @@ import './edit.css';
 import axios from 'axios';
 
 import Question from './Question';
+import AddTest from './AddTest';
 
 class EditTest extends Component{
   constructor(props){
@@ -14,6 +15,17 @@ class EditTest extends Component{
       questions: [],
       error: null
     }
+
+    this.onHandleAddQuestion = this.onHandleAddQuestion.bind(this);
+  }
+
+  onHandleAddQuestion(ques){
+    const newQues = {
+      ...ques,
+      idRLG: 2
+    }
+
+    axios.post(`http://localhost:8080/practice/add`, newQues)
   }
 
   componentDidMount(){
@@ -50,6 +62,7 @@ class EditTest extends Component{
       <div>
         {console.log(questions)}
         <h3>テストの編集</h3>
+        <AddTest onHandleAddQuestion={this.onHandleAddQuestion}/>
         <div className='test_edit'>
           {questions.map((question,index) => 
             <Question question={question} index={index}/>
