@@ -1,43 +1,74 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import './edit.css';
-import axios from 'axios';
+import { Modal, Button, Form } from 'react-bootstrap';
 
-class Question extends Component{
+
+export default class AddTest extends Component{
   constructor(props){
     super(props);
+
     this.state = {
-      question: this.props.question,
-      index: this.props.index
+      show: false,
+      newQuestion: {
+        question: '',
+        answer1: '',
+        answer1: '',
+        answer3: '',
+        answer4: '',
+      }
     }
 
-    this.onHandleEdit = this.onHandleEdit.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleShow = this.handleShow.bind(this)
+    this.onClickSave = this.onClickSave.bind(this)
   }
 
-  onHandleEdit(question){
-    //them link vao cho tao voi
-    axios.post('http://localhost:8080/practice/update',{id:question.id, question:question.question, answer1:question.answer1, answer2:question.answer2, answer3:question.answer3, answer4:question.answer4, result:question.result,type:'vocabulary'})
-    .then(res=>{
-      console.log(res.data);
+  onClickSave(){
+    //console.log(this.state.newQuestion)
+    this.props.onHandleAddQuestion(this.state.newQuestion)
+    this.handleClose();
+  }  
+
+  handleClose(){
+    this.setState({
+      show: false,
+      newQuestion: {
+        ...this.state.newQuestion
+      }
     })
   }
 
+  handleShow(){
+    this.setState({
+      show: true,
+      newQuestion: {
+        ...this.state.newQuestion
+      }
+    })
+  }
+  
   render(){
-    const { question, index } = this.state;
+    const { show, newQuestion } = this.state;
     return(
       <div>
-        <div className='test_edit'>
+        <Button variant="primary" onClick={this.handleShow}>
+          Add new question
+        </Button>
+
+        <Modal show={show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add new question</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
             <Form className="form">
               <Form.Group className="mb-3 label_input" controlId="formBasicQuestion">
-                <Form.Label>Question {index + 1}:</Form.Label>
+                <Form.Label>Question:</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter question"
-                  value={question.question}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       question: e.target.value
                     }
                   })}
@@ -49,11 +80,10 @@ class Question extends Component{
                 <Form.Control
                   type="text"
                   placeholder="Enter answer 1"
-                  value={question.answer1}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       answer1: e.target.value
                     }
                   })}
@@ -65,11 +95,10 @@ class Question extends Component{
                 <Form.Control
                   type="text"
                   placeholder="Enter answer 2"
-                  value={question.answer2}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       answer2: e.target.value
                     }
                   })}
@@ -81,11 +110,10 @@ class Question extends Component{
                 <Form.Control
                   type="text"
                   placeholder="Enter answer 3"
-                  value={question.answer3}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       answer3: e.target.value
                     }
                   })}
@@ -97,11 +125,10 @@ class Question extends Component{
                 <Form.Control
                   type="text"
                   placeholder="Enter answer 4"
-                  value={question.answer4}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       answer4: e.target.value
                     }
                   })}
@@ -111,39 +138,34 @@ class Question extends Component{
               <Form.Group className="mb-3 label_input">
                 <label>True answer</label>
                 <select 
-                  aria-label="Default select example" 
-                  value={question.result}
-                  onChange={(e)=>this.setState({
-                    ...index,
-                    question: {
-                      ...question,
+                  aria-label="Default select example"
+                  onChange={(e)=> this.setState({
+                    show: show,
+                    newQuestion: {
+                      ...newQuestion,
                       result: e.target.value
                     }
                   })}
                 >
+                  <option>Choose a answer</option>
                   <option value="1">Answer 1</option>
                   <option value="2">Answer 2</option>
                   <option value="3">Answer 3</option>
                   <option value="4">Answer 4</option>
                 </select>
               </Form.Group>
-              <Button 
-                variant="primary"
-                onClick={()=>this.onHandleEdit(question)}
-              >
-                Save change
-              </Button>
-              <Button
-                variant="danger"
-                onClick={()=>this.onHandleDelete(question)}
-              >
-                Delete
-              </Button>
             </Form>
-        </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={this.onClickSave}>
+              Save
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     )
   }
 }
-
-export default Question;
