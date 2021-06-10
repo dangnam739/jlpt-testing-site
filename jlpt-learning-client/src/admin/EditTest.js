@@ -19,15 +19,27 @@ class EditTest extends Component{
     this.onHandleAddQuestion = this.onHandleAddQuestion.bind(this);
   }
 
-  onHandleAddQuestion(ques){
+  onHandleAddQuestion= (ques)=>{
     const newQues = {
       ...ques,
-      idRLG: 2
+      idRLG: this.state.idRLG1,type:'vocabulary'
     }
-
+    console.log("object");
     axios.post(`http://localhost:8080/practice/add`, newQues)
-  }
-
+    .then(res=>{
+      console.log(res.data);
+      if (res.data.status==="ok"){
+        console.log("object");
+         this.fetchData();
+      }
+    })
+    }
+    onHandleDelete=(question)=>{
+      axios.post('http://localhost:8080/practice/delete',{id:question.id,type:'vocabulary'})
+      .then(res=>{
+        this.fetchData();
+      })
+    }
   componentDidMount(){
     this.fetchData();
   }
@@ -35,7 +47,6 @@ class EditTest extends Component{
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
     let path1= window.location.pathname
-    console.log(path1);
     let listpath=path1.split("/")
     axios.get(`http://localhost:8080/practice/${listpath[listpath.length-3]}/${listpath[listpath.length-2]}/${listpath[listpath.length-1]}`)
       .then(
@@ -44,7 +55,8 @@ class EditTest extends Component{
           console.log(response)
           this.setState({
             isLoading: false,
-            questions:response.data
+            questions:response.data,
+            idRLG1:listpath[listpath.length-1]
           })
         }
       )
@@ -60,12 +72,11 @@ class EditTest extends Component{
     const { isLoading, questions, error } = this.state;
     return(
       <div>
-        {console.log(questions)}
         <h3>テストの編集</h3>
         <AddTest onHandleAddQuestion={this.onHandleAddQuestion}/>
         <div className='test_edit'>
           {questions.map((question,index) => 
-            <Question question={question} index={index}/>
+            <Question question={question} index={index} onHandleDelete={this.onHandleDelete}/>
           )}
         </div>
       </div>

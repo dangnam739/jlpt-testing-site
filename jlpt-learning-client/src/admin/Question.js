@@ -21,7 +21,12 @@ class Question extends Component{
       console.log(res.data);
     })
   }
-
+  onHandleDelete(question){
+    axios.post('http://localhost:8080/practice/delete',{id:question.id,type:'vocabulary'})
+    .then(res=>{
+      console.log(res.data);
+    })
+  }
   render(){
     const { question, index } = this.state;
     return(
@@ -135,7 +140,7 @@ class Question extends Component{
               </Button>
               <Button
                 variant="danger"
-                onClick={()=>this.onHandleDelete(question)}
+                onClick={()=>this.props.onHandleDelete(question)}
               >
                 Delete
               </Button>

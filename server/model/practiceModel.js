@@ -127,8 +127,7 @@ module.exports.addP = async(req, res) => {
         "\'" + idRLG + "\'" +
         ")";
     var result = queryFunc(qr);
-    row++;
-    return { status: "ok", message: "success" };
+    res.send( { status: "ok", message: "success" });
 }
 module.exports.remove = async(req, res) => {
     var body = req.body;
@@ -136,7 +135,7 @@ module.exports.remove = async(req, res) => {
     var type = body.type;
 
     // xoa practice
-    var qr = "DELETE FROM " + type + "practice WHERE id = " + id;
+    var qr = "DELETE FROM questionpractice" + type + "  WHERE id = " + id;
     var DeletePractice = await queryFunc(qr);
     res.send({ status: "oke" });
 }

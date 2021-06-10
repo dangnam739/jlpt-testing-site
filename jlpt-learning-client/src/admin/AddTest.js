@@ -11,7 +11,7 @@ export default class AddTest extends Component{
       newQuestion: {
         question: '',
         answer1: '',
-        answer1: '',
+        answer2: '',
         answer3: '',
         answer4: '',
       }
@@ -24,8 +24,13 @@ export default class AddTest extends Component{
 
   onClickSave(){
     //console.log(this.state.newQuestion)
-    this.props.onHandleAddQuestion(this.state.newQuestion)
-    this.handleClose();
+    let newQuestion=this.state.newQuestion
+    if (!newQuestion.question || !newQuestion.answer1 || !newQuestion.answer2 || !newQuestion.answer3|| !newQuestion.answer4 || !newQuestion.result){
+      window.alert("chưa đủ dữ liệu")
+    } else {
+      this.props.onHandleAddQuestion(this.state.newQuestion)
+      this.handleClose();
+    }
   }  
 
   handleClose(){

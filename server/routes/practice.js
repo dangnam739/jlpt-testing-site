@@ -13,6 +13,6 @@ router.get('/:level/:type/:id', isLogin, practiceModel.getPracticeById);
 
 router.post('/add',isLogin,practiceModel.addP)
 router.post('/', isLogin, practiceModel.add);
-router.delete('/', isLogin, practiceModel.remove);
+router.post('/delete', isLogin, practiceModel.remove);
 
 module.exports = router;
