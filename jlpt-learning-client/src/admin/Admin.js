@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, Container } from 'react-bootstrap';
-import { Switch, Route, Router, Link } from 'react-router-dom'
+import { Switch, Route, Router, Link ,Redirect } from 'react-router-dom'
 
 import EditTest from './EditTest.js';
 import ListUser from './ListUser';
@@ -12,6 +12,11 @@ export default class Admin extends Component{
   }
 
   render(){
+    let user = JSON.parse(sessionStorage.getItem("user"));
+   
+    if (!user || user.admin!==1) {
+      return <Redirect to="/"/>
+    }
     return(
       <Container>
         <h1>管理者</h1>
@@ -36,5 +41,6 @@ export default class Admin extends Component{
         </Switch>
       </Container>
     )
+    
   }
 }

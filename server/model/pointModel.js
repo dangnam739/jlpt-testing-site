@@ -14,6 +14,19 @@ module.exports.get= async (req,res)=>{
     console.log(qr);
     res.send({data:result})
 }
+module.exports.getList= async (req,res)=>{
+    var level = req.body.level;
+    var qr = `SELECT value.point, users.name, users.id FROM users, value, vocabularypractice  WHERE value.user_id =users.id and value.pactice_id =vocabularypractice.id and vocabularypractice.level='${level}' ORDER BY value.point DESC `;
+    var result = await queryFunc(qr);
+    // if (result.length == 0) {
+    //     res.send({ status: "ok" });
+    //     return;
+    // }
+    console.log(qr);
+    console.log(result);
+    res.send({data:result})
+}
+
 
 module.exports.add= async (req,res)=>{
     var user_id = req.params.id;

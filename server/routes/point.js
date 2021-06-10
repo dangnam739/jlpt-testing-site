@@ -4,6 +4,7 @@ var pointModel = require('./../model/pointModel')
 var isLogin = require('./../model/authModel').checkLogin;
 
 /* GET users listing. */
+router.post('/list', isLogin, pointModel.getList);
 router.get('/:id', isLogin, pointModel.get);
 router.post('/:id', isLogin, pointModel.add)
 module.exports = router

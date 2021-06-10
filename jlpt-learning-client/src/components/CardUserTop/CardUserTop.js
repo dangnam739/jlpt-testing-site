@@ -8,7 +8,7 @@ class CardUserTop extends Component {
                 <img src="https://img.icons8.com/carbon-copy/2x/user.png" height={50} alt=""/>
                 <div>
                     <h4> {this.props.user.name} </h4>
-                    <p>Result: {this.props.user.point} / 180</p>
+                    <p>Result: {this.props.user.point} </p>
                 </div>
             </div>
         );

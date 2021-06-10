@@ -38,7 +38,8 @@ class Login extends Component {
                 email: email,
                 password: password
             })).then(res => {
-                if(res.data.cookies){ // login success
+                if(res.data.cookies){
+                     // login success
                     setUserToken(res.data.cookies);
                     const {location, history} = this.props;
                     //var from = {pathname: '/'};
@@ -52,7 +53,8 @@ class Login extends Component {
                     sessionStorage.setItem("user", JSON.stringify({
                         email: email,
                         name: res.data.user[0].name,
-                        id: res.data.user[0].id
+                        id: res.data.user[0].id,
+                        admin:res.data.user[0].admin
                     }))
                     history.replace(from);
                     window.location.reload();

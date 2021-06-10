@@ -26,11 +26,13 @@ class Menu extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        isLogin: isLogin()
+        isLogin: isLogin(),
+        
       }
     }
     render() {
       console.log(this.state.isLogin)
+      let user = JSON.parse(sessionStorage.getItem("user"));
         return (
             <BrowserRouter>
                 <Navbar bg="light" expand="lg" className="menupage">
@@ -40,7 +42,8 @@ class Menu extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                             <NavLink exact={true} to="/" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faHome} /> Home</NavLink>
-                            <NavLink to="/chart" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Ranking</NavLink>
+                            {user && user.admin!==1 &&<NavLink to="/chart" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Ranking</NavLink>}
+                            {user && user.admin===1 && <NavLink to="/admin" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Admin</NavLink>}
                             </Nav>
                             <div className="menupage__group">
                                 <NavLink to="/practice" activeClassName="active-link" className="menupage__link">
@@ -51,7 +54,7 @@ class Menu extends Component {
                                     : (
                                         <span>
                                           <NavLink to="/profile" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faUser} /> Profile</NavLink>
-                                          <NavLink to="/" className="menupage__link btn btn-default" onClick={() => clearUserToken(() => this.setState({isLogin: false}))}><FontAwesomeIcon icon={faSignInAlt} /> Logout</NavLink>
+                                          <NavLink to="/" className="menupage__link btn btn-default" onClick={() => clearUserToken(() => {this.setState({isLogin: false,user:{}});sessionStorage.removeItem('user')})}><FontAwesomeIcon icon={faSignInAlt} /> Logout</NavLink>
                                         </span>
                                       )
                                 }
