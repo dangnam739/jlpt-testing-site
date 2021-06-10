@@ -19,13 +19,13 @@ export default class Admin extends Component{
     }
     return(
       <Container>
-        <h1>管理者</h1>
+        <h1>Admin</h1>
         <ListGroup horizontal>
           <ListGroup.Item>
-            <Link to='/admin/user'>ユーザ</Link>
+            <Link to='/admin/user'>Users</Link>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Link to='/admin/test'>テスト内容</Link>
+            <Link to='/admin/test'>Test</Link>
           </ListGroup.Item>
         </ListGroup>
         <Switch>

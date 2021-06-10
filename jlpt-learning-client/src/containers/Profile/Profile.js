@@ -33,7 +33,7 @@ class Profile extends Component {
                                 <tr>
                                     <th>Level</th>
                                     <th>Type</th>
-                                    <th>Resuilt</th>
+                                    <th>Result</th>
                                     <th>Retest</th>
                                 </tr>
                                 {
