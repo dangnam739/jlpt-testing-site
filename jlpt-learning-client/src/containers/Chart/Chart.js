@@ -53,7 +53,13 @@ class Chart extends Component {
                 return <Col>  </Col>
             }
         })
-        result = result.concat(   <Col> {indexN5+1} : <CardUserTop user={data[indexN5]} /> </Col>)
+        if ( indexN5 === -1 ){
+            result = result.concat(   <Col> chua thi </Col>)
+
+        } else {
+            result = result.concat(   <Col> {indexN5+1} : <CardUserTop user={data[indexN5]} /> </Col>)
+
+        }
         return result
     }
     render() {
