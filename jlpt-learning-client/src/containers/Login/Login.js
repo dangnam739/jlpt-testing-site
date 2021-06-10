@@ -41,7 +41,11 @@ class Login extends Component {
                 if(res.data.cookies){ // login success
                     setUserToken(res.data.cookies);
                     const {location, history} = this.props;
-                    var from = {pathname: '/'};
+                    //var from = {pathname: '/'};
+                    var from;
+                    if(email === 'admin@gmail.com'){
+                        from = {pathname: '/admin'};
+                    }else from = {pathname: '/'};
                     if(location.state){
                         from = location.state.from;
                     }
