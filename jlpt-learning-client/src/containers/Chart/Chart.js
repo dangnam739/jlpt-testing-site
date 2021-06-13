@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Chart.scss';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import CardUserTop from '../../components/CardUserTop/CardUserTop';
 import axios from 'axios';
 
@@ -47,17 +47,17 @@ class Chart extends Component {
         let result = null
         result = data.map((user,index) => { 
             if (index <3){
-                return <Col> {index+1} : <CardUserTop user={user} /> </Col>
+                return <Col> Rank {index+1} <CardUserTop user={user} /> </Col>
             }
             if (index ===3){
                 return <Col>  </Col>
             }
         })
         if ( indexN5 === -1 ){
-            result = result.concat(   <Col> chua thi </Col>)
+            result = result.concat(   <Col> Haven't participated in the test </Col>)
 
         } else {
-            result = result.concat(   <Col> {indexN5+1} : <CardUserTop user={data[indexN5]} /> </Col>)
+            result = result.concat(   <Col> Your Rank: {indexN5+1}/{data.length} <CardUserTop user={data[indexN5]} /> </Col>)
 
         }
         return result
@@ -70,53 +70,53 @@ class Chart extends Component {
             indexN5 = n5.findIndex(value=>value.id ===user.id)
         }
         return (
-            <div className="chart">
+            <div className="chart container">
                 <Row className="chart__row">
-                    <Col className="chart__n1__title"><h4>Level N1</h4></Col>
+                    <Col className="chart__n1__title col-2"><h4>Level N1</h4></Col>
                     { n1.length!==0 ?
                         n1.map(user => {
                             return <Col> <CardUserTop user={user} /> </Col>
                         })
-                        : <Col><p> chưa ai thi </p></Col>
+                        : <Col><p> No one has participated in the test </p></Col>
                     }
                 </Row>
 
                 <Row className="chart__row">
-                    <Col className="chart__n2__title"><h4>Level N2</h4></Col>
+                    <Col className="chart__n2__title col-2"><h4>Level N2</h4></Col>
                     { n2.length!==0 ?
                         n2.map(user => {
                             return <Col> <CardUserTop user={user} /> </Col>
                         })
-                        : <Col><p> chưa ai thi </p></Col>
+                        : <Col><p> No one has participated in the test </p></Col>
                     }
                 </Row>
 
                 <Row className="chart__row">
-                    <Col className="chart__n3__title"><h4>Level N3</h4></Col>
+                    <Col className="chart__n3__title col-2"><h4>Level N3</h4></Col>
                     { n3.length!==0 ?
                         n3.map(user => {
                             return <Col> <CardUserTop user={user} /> </Col>
                         })
-                        : <Col><p> chưa ai thi </p></Col>
+                        : <Col><p> No one has participated in the test </p></Col>
                     }
                 </Row>
 
                 <Row className="chart__row">
-                    <Col className="chart__n4__title"><h4>Level N4</h4></Col>
+                    <Col className="chart__n4__title col-2"><h4>Level N4</h4></Col>
                     { n4.length!==0 ?
                         n4.map(user => {
                             return <Col> <CardUserTop user={user} /> </Col>
                         })
-                        : <Col><p> chưa ai thi </p></Col>
+                        : <Col><p> No one has participated in the test </p></Col>
                     }
                 </Row>
 
                 <Row className="chart__row">
-                    <Col className="chart__n5__title"><h4>Level N5</h4></Col>
+                    <Col className="chart__n5__title col-2"><h4>Level N5</h4></Col>
                     { n5.length!==0 ?
                         this.show(n5,indexN5)
                               
-                        : <Col><p> chưa ai thi </p></Col>
+                        : <Col><p> No one has participated in the test </p></Col>
                     }
                 </Row>
             </div>

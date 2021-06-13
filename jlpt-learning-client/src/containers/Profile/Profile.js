@@ -33,7 +33,7 @@ class Profile extends Component {
                                 <tr>
                                     <th>Level</th>
                                     <th>Type</th>
-                                    <th>Resuilt</th>
+                                    <th>Result</th>
                                     <th>Retest</th>
                                 </tr>
                                 {
@@ -66,14 +66,10 @@ class Profile extends Component {
                                 </ul>
                             </nav>
 
-                            <div className="d-flex" style={{width: "100%"}}>
+                            <div className="d-flex" style={{width: "50%"}}>
                                 
-                                    <a href="/practice" className="btn btn-primary mr-4" style={{width: "50%"}}>
-                                        Practice now
-                                    </a>
-                                
-                                <a href="/exam" className="btn btn-primary" style={{width: "50%"}}>
-                                        Test now
+                                    <a href="/practice" className="btn btn-primary mr-4" style={{width: "100%"}}>
+                                        Test now >>
                                     </a>
                                 
                             </div>

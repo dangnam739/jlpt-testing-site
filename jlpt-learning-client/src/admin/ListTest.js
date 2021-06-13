@@ -56,14 +56,14 @@ export default class ListTest extends Component{
     const { isLoading, tests, error } = this.state;
     return(
       <div>
-        <h3>テストのリスト</h3>
+        <h3>List Test</h3>
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
-              <th>カテゴリ</th>
-              <th>レベル</th>
-              <th>編集</th>
+              <th>Category</th>
+              <th>Label</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>

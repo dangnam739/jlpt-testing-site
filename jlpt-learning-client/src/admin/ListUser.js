@@ -55,14 +55,14 @@ export default class ListUser extends Component{
     const { isLoading, users, error } = this.state;
     return(
       <div>
-        <h3>ユーザのリスト</h3>
+        <h3>List Users</h3>
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
-              <th>名前</th>
-              <th>メール</th>
-              <th>削除</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
