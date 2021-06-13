@@ -14,10 +14,12 @@ class PracticeTest extends Component {
     }
 
     componentDidMount(){
+        console.log(process.env.PORT);
         praticApi.getdata(this.state.path).then((res) => {
             console.log(res.data);
             this.setState({data: res.data});
         })
+        .catch(err=>console.log(err))
     }
 
     render() {

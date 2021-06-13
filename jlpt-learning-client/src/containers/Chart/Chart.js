@@ -21,23 +21,23 @@ class Chart extends Component {
     componentDidMount(){
         let user = sessionStorage.getItem("user")
         user =JSON.parse(user)
-        axios.post('http://localhost:8080/point/list',{level:'n5'})
+        axios.post(`${process.env.PORT}/point/list`,{level:'n5'})
         .then(res=>{
             this.setState({n5:res.data.data})
         })
-        axios.post('http://localhost:8080/point/list',{level:'n4'})
+        axios.post(`${process.env.PORT}/point/list`,{level:'n4'})
         .then(res=>{
             this.setState({n4:res.data.data})
         })
-        axios.post('http://localhost:8080/point/list',{level:'n3'})
+        axios.post(`${process.env.PORT}/point/list`,{level:'n3'})
         .then(res=>{
             this.setState({n3:res.data.data})
         })
-        axios.post('http://localhost:8080/point/list',{level:'n2'})
+        axios.post(`${process.env.PORT}/point/list`,{level:'n2'})
         .then(res=>{
             this.setState({n2:res.data.data})
         })
-        axios.post('http://localhost:8080/point/list',{level:'n1'})
+        axios.post(`${process.env.PORT}/point/list`,{level:'n1'})
         .then(res=>{
             this.setState({n1:res.data.data})
         })
