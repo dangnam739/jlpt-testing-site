@@ -108,7 +108,7 @@ class EntryPractice extends Component {
                                             style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}} 
                                             className="correct"
                                         >
-                                            <span>Corect answer: </span> {item["answer" + item.result]} 
+                                            <span>Correct answer: </span> {item["answer" + item.result]} 
                                         </p>
                                     </div>
                                 ))}
