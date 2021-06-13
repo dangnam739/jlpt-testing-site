@@ -35,7 +35,7 @@ class Home extends Component {
         return (
             <div className="homepage">
                 <div className = "homepage__header">
-                    <p className="homepage__header__title">
+                    <p className="homepage__header__title container">
                         Welcome JLPT Testing
                     </p>
                 <div className = "container">
