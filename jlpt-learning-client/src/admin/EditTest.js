@@ -25,7 +25,7 @@ class EditTest extends Component{
       idRLG: this.state.idRLG1,type:'vocabulary'
     }
     console.log("object");
-    axios.post(`${process.env.PORT}/practice/add`, newQues)
+    axios.post(`${process.env.REACT_APP_PORT}/practice/add`, newQues)
     .then(res=>{
       console.log(res.data);
       if (res.data.status==="ok"){
@@ -35,7 +35,7 @@ class EditTest extends Component{
     })
     }
     onHandleDelete=(question)=>{
-      axios.post(`${process.env.PORT}/practice/delete`,{id:question.id,type:'vocabulary'})
+      axios.post(`${process.env.REACT_APP_PORT}/practice/delete`,{id:question.id,type:'vocabulary'})
       .then(res=>{
         this.fetchData();
       })
@@ -48,7 +48,7 @@ class EditTest extends Component{
     // thay đổi link này thành link mà server trả về nháaaa
     let path1= window.location.pathname
     let listpath=path1.split("/")
-    axios.get(`${process.env.PORT}/practice/${listpath[listpath.length-3]}/${listpath[listpath.length-2]}/${listpath[listpath.length-1]}`)
+    axios.get(`${process.env.REACT_APP_PORT}/practice/${listpath[listpath.length-3]}/${listpath[listpath.length-2]}/${listpath[listpath.length-1]}`)
       .then(
         (response) => 
         {

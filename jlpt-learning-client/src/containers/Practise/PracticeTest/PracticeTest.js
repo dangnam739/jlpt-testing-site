@@ -14,7 +14,7 @@ class PracticeTest extends Component {
     }
 
     componentDidMount(){
-        console.log(process.env.PORT);
+        console.log(process.env.REACT_APP_PORT);
         praticApi.getdata(this.state.path).then((res) => {
             console.log(res.data);
             this.setState({data: res.data});

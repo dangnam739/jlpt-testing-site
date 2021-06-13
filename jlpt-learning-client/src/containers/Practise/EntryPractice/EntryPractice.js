@@ -55,7 +55,7 @@ class EntryPractice extends Component {
         let user = JSON.parse(sessionStorage.getItem("user"))
         let listid=this.state.path.split("/")
         let practice_id=listid[listid.length-1] 
-        axios.post(`${process.env.PORT}/point/${user.id}`,{practice_id:practice_id,point:point})
+        axios.post(`${process.env.REACT_APP_PORT}/point/${user.id}`,{practice_id:practice_id,point:point})
         this.setState({point: point, displayResult: true, displayCorrect: true});
     }
 
