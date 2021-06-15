@@ -44,7 +44,7 @@ class PracticeTest extends Component {
                                 <div className="d-flex justify-content-around align-items-center">
                                 <h5>Exam number {` ${++index}`}</h5>
                                     <button className="btn btn-primary">
-                                        <a href={path + '/' + item.id}>Practice now</a>
+                                        <a href={path + '/' + item.id}>Test now</a>
                                     </button>
                                 </div>
                             </div>

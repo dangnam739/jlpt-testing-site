@@ -13,7 +13,7 @@ class Profile extends Component {
     }
 
     componentDidMount(){
-        axios.get(`http://localhost:8080/point/${this.state.user.id}`)
+        axios.get(`https://bac39dd2d9a0.ngrok.io/point/${this.state.user.id}`)
         .then(res=>{
             console.log(res.data);
             this.setState({data:res.data.data})
@@ -28,7 +28,7 @@ class Profile extends Component {
                     <div className="row">
                         <div className="col-md-2"></div>
                         <div className="col-md-8 profile-container">
-                            <h2>{this.state.user.name}' process: </h2>
+                            <h2>{this.state.user.name}' results: </h2>
                             <Table responsive bordered>
                                 <tr>
                                     <th>Level</th>

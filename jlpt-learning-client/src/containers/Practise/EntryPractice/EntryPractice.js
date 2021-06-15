@@ -144,7 +144,7 @@ class EntryPractice extends Component {
                                     className="btn btn-primary"
                                     style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}}
                                 >
-                                    <a href={path} style={{color: '#fff', textDecoration: 'none'}}>Practice more...</a>
+                                    <a href={path} style={{color: '#fff', textDecoration: 'none'}}>Test more</a>
                                 </button>
 
                                 <div className="practice-footer">

@@ -26,10 +26,11 @@ export default class AddTest extends Component{
     //console.log(this.state.newQuestion)
     let newQuestion=this.state.newQuestion
     if (!newQuestion.question || !newQuestion.answer1 || !newQuestion.answer2 || !newQuestion.answer3|| !newQuestion.answer4 || !newQuestion.result){
-      window.alert("chưa đủ dữ liệu")
+      window.alert("Please fill all fields !")
     } else {
       this.props.onHandleAddQuestion(this.state.newQuestion)
       this.handleClose();
+      
     }
   }  
 

@@ -32,12 +32,14 @@ class EditTest extends Component{
         console.log("object");
          this.fetchData();
       }
+      alert('Added question successfully !');
     })
     }
     onHandleDelete=(question)=>{
       axios.post(`${process.env.REACT_APP_PORT}/practice/delete`,{id:question.id,type:'vocabulary'})
       .then(res=>{
         this.fetchData();
+        alert('Deleted question successfully !');
       })
     }
   componentDidMount(){
@@ -71,8 +73,8 @@ class EditTest extends Component{
   render(){
     const { isLoading, questions, error } = this.state;
     return(
-      <div>
-        <h3>テストの編集</h3>
+      <div><br/>
+        <h3>Edit Test</h3>
         <AddTest onHandleAddQuestion={this.onHandleAddQuestion}/>
         <div className='test_edit'>
           {questions.map((question,index) => 

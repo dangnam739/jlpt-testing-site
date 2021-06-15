@@ -23,7 +23,7 @@ export default class ListUser extends Component{
 
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
-    axios.get(`http://localhost:8080/users/getall`)
+    axios.get(`https://bac39dd2d9a0.ngrok.io/users/getall`)
       .then(
         (response) => 
         {
@@ -42,12 +42,13 @@ export default class ListUser extends Component{
   }
 
   deleteUser(id){
-    axios.post(`http://localhost:8080/users/delete/${id}`)
+    axios.post(`https://bac39dd2d9a0.ngrok.io/users/delete/${id}`)
     .then((result) => {
       this.fetchData();
     }).catch((err) => {
       
     });
+    alert('Deleted user successfully !');
   }
 
   render(){
@@ -55,7 +56,8 @@ export default class ListUser extends Component{
     const { isLoading, users, error } = this.state;
     return(
       <div>
-        <h3>List Users</h3>
+        <br/><br/>
+        <h3>List Users</h3><br/>
         <Table striped bordered hover>
           <thead>
             <tr>

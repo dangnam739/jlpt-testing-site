@@ -5,7 +5,8 @@ class Practice extends Component {
     render() {
         return (
             <div className="practice">
-                <h2 className="practice-title text-center">Practice to success</h2>
+                <h1 className="practice-title text-center">List Test</h1>
+                <i><center>Please choice level you want test.</center></i><br/>
                 <div className="container practice-container">
                     
                     <div className="row">

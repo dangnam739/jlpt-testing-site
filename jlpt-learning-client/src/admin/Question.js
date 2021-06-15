@@ -19,14 +19,19 @@ class Question extends Component{
     axios.post(`${process.env.REACT_APP_PORT}/practice/update`,{id:question.id, question:question.question, answer1:question.answer1, answer2:question.answer2, answer3:question.answer3, answer4:question.answer4, result:question.result,type:'vocabulary'})
     .then(res=>{
       console.log(res.data);
+      alert('Saved change successfully !');
     })
+    
   }
   onHandleDelete(question){
     axios.post(`${process.env.REACT_APP_PORT}/practice/delete`,{id:question.id,type:'vocabulary'})
     .then(res=>{
       console.log(res.data);
+      
     })
+    
   }
+
   render(){
     const { question, index } = this.state;
     return(

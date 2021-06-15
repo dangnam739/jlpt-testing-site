@@ -10,18 +10,7 @@ export default class ListTest extends Component{
     this.state = {
       isLoading: true,
       tests: [
-        {
-          id: 1,
-          name: 'Test Kanji N5',
-          level: 'N5',
-          category: 'Kanji'
-        },
-        {
-          id: 2,
-          name: 'Test Goi N5',
-          level: 'N5',
-          category: 'Goi'
-        },
+       
       ],
       error: null
     }
@@ -33,7 +22,7 @@ export default class ListTest extends Component{
 
   fetchData(){
     // thay đổi link này thành link mà server trả về nháaaa
-    axios.get(`http://localhost:8080/practice/getall`)
+    axios.get(`https://bac39dd2d9a0.ngrok.io/practice/getall`)
       .then(
         (response) => 
         {
@@ -56,7 +45,8 @@ export default class ListTest extends Component{
     const { isLoading, tests, error } = this.state;
     return(
       <div>
-        <h3>List Test</h3>
+        <br/><br/>
+        <h3>List Test</h3><br/>
         <Table striped bordered hover>
           <thead>
             <tr>
