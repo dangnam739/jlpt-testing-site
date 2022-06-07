@@ -34,7 +34,3 @@ $ npm start
 ```
 
 ```
-### Development
-Nguyen Thai Tiep    backend, database
-Ngo Sach Nhat       frontend, logic
-Hoang Duong Hao     database
